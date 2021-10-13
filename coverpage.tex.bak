@@ -1,0 +1,78 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%						TITLE PAGE							
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Also check thesis-info.tex page%%%%%
+\thispagestyle{empty}
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[scale=0.20]{Logo_Unige.png} % here you can also place other logs, by properly adjusting the scale and margin
+	\begin{center} 
+		\Large
+		%\textbf{\textsc{University of Genoa}}\\
+		{\textsc{University of Genova}}\\
+		  \vspace{0.5em}
+		  \large
+	         \textsc{PhD Program in Bioengineering and Robotics}\\
+
+	\end{center}
+\end{figure}
+
+
+
+\begin{center} 
+	
+	%\vspace{1em}
+
+
+		\LARGE
+		\textbf{Title of the thesis} \\
+\end{center}
+
+ 	\begin{center} 
+		by \\
+		\vspace{0.5em}
+		\textbf{Name}\\
+		\vspace{1em}
+	
+		
+%		\textsc{Doctoral School in Sciences and Technologies for Information and Knowledge} \\
+     % \vspace{0.5em}
+%	\textsc{PhD Program in Bioengineering and Robotics}\\
+	\vspace{1cm}	
+		\normalsize
+		Thesis submitted for the degree of \textit{Doctor of Philosophy} ($31^\circ$ cycle) \\
+	\vspace{1cm}	
+		\normalsize
+		December 2018\\
+	\end{center}
+	\vspace{2em}
+
+\vfill
+
+
+	\noindent {Name} \hfill  {Supervisor}	
+	\\
+	\noindent {Name}	\hfill  {Head of the PhD program}	
+	\vspace{1em} \\
+		\noindent {\textbf{\textit{Thesis Jury:}}}			
+	\\
+	\noindent {Name, \textit{University}}	\hfill  {External examiner}	
+	\\
+	\noindent {Name, \textit{University}}	\hfill  {External examiner}
+	\\
+			\noindent {Name, \textit{University}} \hfill  {Internal examiner}
+
+\vspace{2em}
+\vfill
+\begin{figure}[h!]
+ \centering
+ \includegraphics{Logo_Dibris.png}
+\begin{center} 
+		\small{Department of Informatics, Bioengineering, Robotics and Systems Engineering\\}
+	\end{center}
+\end{figure}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
