@@ -45,8 +45,6 @@ model six_rss_closedloop
     Placement(visible = true, transformation(extent = {{-120, 38}, {-100, 58}}, rotation = 0)));
   Modelica.Blocks.Sources.Constant Constant2(k = Modelica.SIunits.Conversions.from_deg(0)) annotation(
     Placement(visible = true, transformation(extent = {{-178, 38}, {-158, 58}}, rotation = 0)));
-  Modelica.Blocks.Sources.Constant const(k = Modelica.SIunits.Conversions.from_deg(0)) annotation(
-    Placement(visible = true, transformation(extent = {{-216, 66}, {-196, 86}}, rotation = 0)));
   Modelica.Blocks.Sources.Constant const1(k = Modelica.SIunits.Conversions.from_deg(0)) annotation(
     Placement(visible = true, transformation(extent = {{-218, -2}, {-198, 18}}, rotation = 0)));
   Modelica.Blocks.Sources.Constant const2(k = Modelica.SIunits.Conversions.from_deg(0)) annotation(
@@ -63,6 +61,8 @@ model six_rss_closedloop
     Placement(visible = true, transformation(extent = {{-120, -96}, {-100, -76}}, rotation = 0)));
   OM_SP7.Axis.PositionAxis positionAxis_c1(DParam1Position = 0, DParam1Velocity = 0, DParam2Position = 0, DParam2Velocity = 0, DParamCurrent = 0, IClip1Position = 500, IClip1Velocity = 500, IClip2Position = 1000, IClip2Velocity = 1000, IClipCurrent = 1000, IParam1Position = 0, IParam1Velocity = 200, IParam2Position = 0, IParam2Velocity = 600, IParamCurrent = 4000, PIDPeriodCurrent = 0.001, PIDPeriodPosition = 0.001, PParam1Position = 50, PParam1Velocity = 200, PParam2Position = 50, PParam2Velocity = 800, PParamCurrent = 4000, armatureInductance = 0.00773, armatureResistance = 13.7, encoderTickPerRound = 4000, gearboxInertia = 0.000000071, gearboxRatio = 71, maximumCurrent = 1.75, maximumPWM = 32767, maximumVelocity = 5.8997, motorInertia = 0.0000035, nominalCurrent = 0.49, nominalRPM = 2800, nominalVoltage = 24, thresholdPosition = 0, thresholdVelocity = 0) annotation(
     Placement(visible = true, transformation(extent = {{-120, -68}, {-100, -48}}, rotation = 0)));
+  Modelica.Blocks.Sources.Ramp ramp(duration = 1, height = Modelica.SIunits.Conversions.from_deg(10), offset = Modelica.SIunits.Conversions.from_deg(0), startTime = 0) annotation(
+    Placement(visible = true, transformation(origin = {-250, 74}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
 //pos = (rss_leg1.frame_b.r_0) - (rss_leg2.frame_b.r_0);
 //pos[2] = (rss_leg1.frame_b.r_0[2]) - (rss_leg2.frame_b.r_0[2]);
@@ -109,8 +109,6 @@ equation
     Line(points = {{-101, 76}, {162, 76}}));
   connect(Constant2.y, positionAxis_a2.setPosition) annotation(
     Line(points = {{-157, 48}, {-110, 48}}, color = {0, 0, 127}));
-  connect(const.y, positionAxis_a1.setPosition) annotation(
-    Line(points = {{-194, 76}, {-110, 76}}, color = {0, 0, 127}));
   connect(positionAxis_b1.flange_b, rss_leg_b1.flange_a) annotation(
     Line(points = {{-103, 8}, {166, 8}}));
   connect(positionAxis_b2.flange_b, rss_leg_b2.flange_a) annotation(
@@ -127,6 +125,8 @@ equation
     Line(points = {{-159, -20}, {-112, -20}}, color = {0, 0, 127}));
   connect(const1.y, positionAxis_b1.setPosition) annotation(
     Line(points = {{-197, 8}, {-112, 8}}, color = {0, 0, 127}));
+  connect(ramp.y, positionAxis_a1.setPosition) annotation(
+    Line(points = {{-238, 74}, {-110, 74}, {-110, 76}}, color = {0, 0, 127}));
 protected
   annotation(
     Diagram(coordinateSystem(extent = {{-500, -500}, {500, 500}})),
