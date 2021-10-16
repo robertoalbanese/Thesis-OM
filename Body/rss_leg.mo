@@ -14,7 +14,7 @@ model rss_leg
   parameter SIunits.AngularVelocity motorInitialVelocity = 0 "Axis speed of revolute joint j1";
   parameter Integer side = 1 "right=1, left=-1";
   
-  Modelica.Mechanics.MultiBody.Joints.Revolute j1(cylinderDiameter = jointWidth, cylinderLength = jointLength, phi(displayUnit = "rad", fixed = true, start = motorInitialAngle * (3.14159265358979323846 / 180)), stateSelect = StateSelect.always, w(fixed = false, start = motorInitialVelocity)) annotation(
+  Modelica.Mechanics.MultiBody.Joints.Revolute j1(cylinderDiameter = jointWidth, cylinderLength = jointLength, phi(displayUnit = "rad", fixed = true, start = motorInitialAngle * (3.14159265358979323846 / 180)), stateSelect = StateSelect.always, useAxisFlange = true, w(fixed = false, start = motorInitialVelocity)) annotation(
     Placement(visible = true, transformation(origin = {2, -48}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Mechanics.MultiBody.Parts.BodyShape b1(animateSphere = false, m = 1, r = {side *0.2, 0, 0}, r_CM = {side *0.1, 0, 0}, width = bodyWidth) annotation(
     Placement(visible = true, transformation(origin = {38, -48}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -32,6 +32,8 @@ model rss_leg
     Placement(visible = true, transformation(origin = {-66, -6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Mechanics.MultiBody.Parts.FixedRotation fixedRotation1(angle = -90, animation = false, n = {0, 1, 0}, r = {distance, 0, 0}) annotation(
     Placement(visible = true, transformation(origin = {-38, -6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a annotation(
+    Placement(visible = true, transformation(origin = {12, 78}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-70, 12}, extent = {{-6, -6}, {6, 6}}, rotation = 0)));
 equation
   connect(j1.frame_b, b1.frame_a) annotation(
     Line(points = {{12, -48}, {28, -48}}));
@@ -49,6 +51,8 @@ equation
     Line(points = {{-74, -48}, {-64, -48}, {-64, -24}, {-88, -24}, {-88, -6}, {-76, -6}}));
   connect(b2.frame_b, frame_b) annotation(
     Line(points = {{60, 30}, {60, 80}}));
+  connect(j1.axis, flange_a) annotation(
+    Line(points = {{2, -38}, {12, -38}, {12, 78}}));
 
 annotation(
     Icon(graphics = {Text(origin = {3, -124}, lineColor = {0, 60, 255}, fillColor = {0, 68, 255}, fillPattern = FillPattern.Solid, extent = {{-145, 32}, {145, -32}}, textString = "%name"), Rectangle(origin = {8, -53}, fillColor = {200, 213, 235}, fillPattern = FillPattern.HorizontalCylinder, extent = {{-38, 13}, {38, -13}}), Rectangle(origin = {27.4355, 16.7005}, rotation = -65, fillColor = {200, 213, 235}, fillPattern = FillPattern.HorizontalCylinder, extent = {{-81.0206, 14.0286}, {81.0206, -14.0286}}), Ellipse(origin = {-40, -53}, fillColor = {134, 170, 92}, fillPattern = FillPattern.CrossDiag, extent = {{-22, 23}, {22, -23}}, endAngle = 360), Ellipse(origin = {57, -52}, fillColor = {137, 199, 148}, fillPattern = FillPattern.Sphere, extent = {{-19, 20}, {19, -20}}, endAngle = 360), Ellipse(origin = {-7, 92}, fillColor = {137, 199, 148}, fillPattern = FillPattern.Sphere, extent = {{-19, 20}, {19, -20}}, endAngle = 360)}));
