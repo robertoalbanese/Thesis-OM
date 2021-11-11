@@ -2,7 +2,7 @@ within OM_SP7.Controller.PIDs;
 
 model CurrentPID
   import Modelica.SIunits;
-  import youBot.Controller.Components;
+  import OM_SP7.Controller.Components;
   Modelica.Blocks.Math.Feedback feedback annotation(
     Placement(transformation(extent = {{-180, -10}, {-160, 10}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealInput setCurrent annotation(

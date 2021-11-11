@@ -9,16 +9,17 @@ model rss_leg
   parameter SIunits.Length baseX = 0 "location of base_manipulator in x axis";
   parameter SIunits.Length baseY = 0 "location of base_manipulator in y axis";
   parameter SIunits.Conversions.NonSIunits.Angle_deg theta = 0 "Angle position of the joints w.r.t. the centre of the base";
+  constant StateSelect stateSelect = StateSelect.prefer annotation(Dialog(tab = "Advanced"));
   parameter SIunits.Length distance = 1 "Joint distance from the center of the base";
   parameter SIunits.Conversions.NonSIunits.Angle_deg motorInitialAngle = 0 "Initial angle at start of simulation";
   parameter SIunits.AngularVelocity motorInitialVelocity = 0 "Axis speed of revolute joint j1";
   parameter Integer side = 1 "right=1, left=-1";
   
-  Modelica.Mechanics.MultiBody.Joints.Revolute j1(cylinderDiameter = jointWidth, cylinderLength = jointLength, phi(displayUnit = "rad", fixed = true, start = motorInitialAngle * (3.14159265358979323846 / 180)), stateSelect = StateSelect.always, useAxisFlange = true, w(fixed = false, start = motorInitialVelocity)) annotation(
+  Modelica.Mechanics.MultiBody.Joints.Revolute j1(cylinderDiameter = jointWidth, cylinderLength = jointLength, phi(displayUnit = "rad", fixed = true, start = motorInitialAngle * (3.14159265358979323846 / 180)), stateSelect = stateSelect, useAxisFlange = true, w(fixed = false, start = motorInitialVelocity)) annotation(
     Placement(visible = true, transformation(origin = {2, -48}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Mechanics.MultiBody.Parts.BodyShape b1(animateSphere = false, m = 1, r = {side *0.2, 0, 0}, r_CM = {side *0.1, 0, 0}, width = bodyWidth) annotation(
+  Modelica.Mechanics.MultiBody.Parts.BodyShape b1(animateSphere = false, m = 0.1, r = {side *0.2, 0, 0}, r_CM = {side *0.1, 0, 0}, width = bodyWidth) annotation(
     Placement(visible = true, transformation(origin = {38, -48}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Mechanics.MultiBody.Parts.BodyShape b2(animateSphere = false, m = 1, r = {-side *0.2, 0.3, 0}, r_CM = {-side *0.1, 0.15, 0}, width = bodyWidth) annotation(
+  Modelica.Mechanics.MultiBody.Parts.BodyShape b2(animateSphere = false, m = 0.1, r = {-side *0.2, 0.3, 0}, r_CM = {-side *0.1, 0.15, 0}, width = bodyWidth) annotation(
     Placement(visible = true, transformation(origin = {60, 20}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
   Modelica.Mechanics.MultiBody.Joints.Revolute j2(cylinderDiameter = jointWidth, cylinderLength = jointLength, phi(displayUnit = "rad"))  annotation(
     Placement(visible = true, transformation(origin = {60, -16}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
