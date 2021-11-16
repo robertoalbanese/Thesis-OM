@@ -1,6 +1,5 @@
-rss_leg
 six_rss_closedloop
 base
 platform
-leg_test
-sp7_test
+six_rss_legs
+rss_leg
