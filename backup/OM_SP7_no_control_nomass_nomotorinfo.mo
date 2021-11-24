@@ -19,15 +19,15 @@ package OM_SP7_no_control_nomass_nomotorinfo
         Placement(visible = true, transformation(extent = {{62, -10}, {82, 10}}, rotation = 0)));
       Modelica.Blocks.Interfaces.RealInput setPosition annotation(
         Placement(visible = true, transformation(origin = {-120, 0}, extent = {{10, 10}, {-10, -10}}, rotation = 180), iconTransformation(extent = {{10, 10}, {-10, -10}}, rotation = 180)));
-      parameter SIunits.Voltage nominalVoltage = 24 "|Motor||";
-      parameter SIunits.Current nominalCurrent = 2.36 "|Motor||";
-      parameter SIunits.Conversions.NonSIunits.AngularVelocity_rpm nominalRPM = 6700 "|Motor||";
-      parameter SIunits.Resistance armatureResistance = 0.978 "|Motor||";
-      parameter SIunits.Inductance armatureInductance = 0.000573 "|Motor||";
-      parameter SIunits.Inertia motorInertia = 0.0000135 "|Motor||";
+      parameter SIunits.Voltage nominalVoltage = 48 "|Motor||";
+      parameter SIunits.Current nominalCurrent = 14.4 "|Motor||";
+      parameter SIunits.Conversions.NonSIunits.AngularVelocity_rpm nominalRPM = 2500 "|Motor||";
+      parameter SIunits.Resistance armatureResistance = 0.12 "|Motor||";
+      parameter SIunits.Inductance armatureInductance = 0.00031 "|Motor||";
+      parameter SIunits.Inertia motorInertia = 0.000116 "|Motor||";
       parameter SIunits.Inertia gearboxInertia = 0.000000409 "|Motor||";
-      parameter Real gearboxRatio = 100 "|Motor||";
-      parameter Integer encoderTickPerRound = 4000 "|Motor||";
+      parameter Real gearboxRatio = 150 "|Motor||";
+      parameter Integer encoderTickPerRound = 4096 "|Motor|| N° absolute singleturn steps";
       parameter SIunits.AngularVelocity thresholdPosition "|Position Controller|| threshold velocity for position controller";
       parameter SIunits.AngularVelocity maximumVelocity = 2 "|Position Controller|| maximum allowable velocity set";
       parameter SIunits.Time PIDPeriodPosition = 0.001 "|Position Controller|| Time period for position pid controller";
@@ -56,7 +56,7 @@ package OM_SP7_no_control_nomass_nomotorinfo
       parameter Integer IParamCurrent "|Current Controller|| integral gain in current controller";
       parameter Integer DParamCurrent "|Current Controller|| derivative gain in current controller";
       parameter Integer IClipCurrent = 0 "|Current Controller|| integral clip in current controller";
-      OM_SP7.Controller.Modes.PositionMode positionMode(motorVoltage = nominalVoltage, encoderTickPerRound = encoderTickPerRound, thresholdPosition = thresholdPosition, maximumVelocity = maximumVelocity, PIDPeriodPosition = PIDPeriodPosition, PParam1Position = PParam1Position, PParam2Position = PParam2Position, IParam1Position = IParam1Position, IParam2Position = IParam2Position, DParam1Position = DParam1Position, DParam2Position = DParam2Position, IClip1Position = IClip1Position, IClip2Position = IClip2Position, thresholdVelocity = thresholdVelocity, maximumCurrent = maximumCurrent, PIDPeriodVelocity = PIDPeriodVelocity, PParam1Velocity = PParam1Velocity, PParam2Velocity = PParam2Velocity, IParam1Velocity = IParam1Velocity, IParam2Velocity = IParam2Velocity, DParam1Velocity = DParam1Velocity, DParam2Velocity = DParam2Velocity, IClip1Velocity = IClip1Velocity, IClip2Velocity = IClip2Velocity, maximumPWM = maximumPWM, PIDPeriodCurrent = PIDPeriodCurrent, PParamCurrent = PParamCurrent, IParamCurrent = IParamCurrent, DParamCurrent = DParamCurrent, IClipCurrent = IClipCurrent, gearRatio = idealGear.ratio) annotation(
+      OM_SP7_no_control_nomass_nomotorinfo.Controller.Modes.PositionMode positionMode(motorVoltage = nominalVoltage, encoderTickPerRound = encoderTickPerRound, thresholdPosition = thresholdPosition, maximumVelocity = maximumVelocity, PIDPeriodPosition = PIDPeriodPosition, PParam1Position = PParam1Position, PParam2Position = PParam2Position, IParam1Position = IParam1Position, IParam2Position = IParam2Position, DParam1Position = DParam1Position, DParam2Position = DParam2Position, IClip1Position = IClip1Position, IClip2Position = IClip2Position, thresholdVelocity = thresholdVelocity, maximumCurrent = maximumCurrent, PIDPeriodVelocity = PIDPeriodVelocity, PParam1Velocity = PParam1Velocity, PParam2Velocity = PParam2Velocity, IParam1Velocity = IParam1Velocity, IParam2Velocity = IParam2Velocity, DParam1Velocity = DParam1Velocity, DParam2Velocity = DParam2Velocity, IClip1Velocity = IClip1Velocity, IClip2Velocity = IClip2Velocity, maximumPWM = maximumPWM, PIDPeriodCurrent = PIDPeriodCurrent, PParamCurrent = PParamCurrent, IParamCurrent = IParamCurrent, DParamCurrent = DParamCurrent, IClipCurrent = IClipCurrent, gearRatio = idealGear.ratio) annotation(
         Placement(visible = true, transformation(extent = {{-88, 60}, {-48, 80}}, rotation = 0)));
       Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b annotation(
         Placement(transformation(extent = {{110, -10}, {130, 10}}, rotation = 0)));
@@ -110,15 +110,15 @@ package OM_SP7_no_control_nomass_nomotorinfo
       Modelica.Mechanics.Rotational.Components.BearingFriction bearingFriction(tau_pos = [0, 0.0328; 3, 0.063; 4, 0.0731], useSupport = false) annotation(
         Placement(transformation(extent = {{60, -10}, {80, 10}}, rotation = 0)));
     public
-      parameter SIunits.Voltage nominalVoltage = 24 "|Motor||";
-      parameter SIunits.Current nominalCurrent = 2.36 "|Motor||";
-      parameter SIunits.Conversions.NonSIunits.AngularVelocity_rpm nominalRPM = 6700 "|Motor||";
-      parameter SIunits.Resistance armatureResistance = 0.978 "|Motor||";
-      parameter SIunits.Inductance armatureInductance = 0.000573 "|Motor||";
-      parameter SIunits.Inertia motorInertia = 0.0000135 "|Motor||";
+      parameter SIunits.Voltage nominalVoltage = 48 "|Motor||";
+      parameter SIunits.Current nominalCurrent = 14.4 "|Motor||";
+      parameter SIunits.Conversions.NonSIunits.AngularVelocity_rpm nominalRPM = 2500 "|Motor||";
+      parameter SIunits.Resistance armatureResistance = 0.12 "|Motor||";
+      parameter SIunits.Inductance armatureInductance = 0.00031 "|Motor||";
+      parameter SIunits.Inertia motorInertia = 0.000116 "|Motor||";
       parameter SIunits.Inertia gearboxInertia = 0.000000409 "|Motor||";
-      parameter Real gearboxRatio = 100 "|Motor||";
-      parameter Integer encoderTickPerRound = 4000 "|Motor||";
+      parameter Real gearboxRatio = 150 "|Motor||";
+      parameter Integer encoderTickPerRound = 4096 "|Motor|| N° absolute singleturn steps";
       parameter SIunits.AngularAcceleration acceleration = 2 "|Velocity Ramp Generator|| Acceleration";
       parameter Real positionTolerance = 5 "|Velocity Ramp Generator|| Position tolerance, EncoderTick";
       parameter SIunits.AngularVelocity velocityTolerance "|Velocity Ramp Generator|| Velocity tolerance";
@@ -154,7 +154,7 @@ package OM_SP7_no_control_nomass_nomotorinfo
       parameter Integer IClipCurrent = 0 "|Current Controller|| integral clip in current controller";
       Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b annotation(
         Placement(transformation(extent = {{110, -10}, {130, 10}}, rotation = 0)));
-      OM_SP7.Controller.Modes.VRampMode Controller_VRampMode2_1(motorVoltage = nominalVoltage, maximumVelocity = maximumVelocity, thresholdVelocity = thresholdVelocity, maximumCurrent = maximumCurrent, PIDPeriodVelocity = PIDPeriodVelocity, PParam1Velocity = PParam1Velocity, PParam2Velocity = PParam2Velocity, IParam1Velocity = IParam1Velocity, IParam2Velocity = IParam2Velocity, DParam1Velocity = DParam1Velocity, DParam2Velocity = DParam2Velocity, IClip1Velocity = IClip1Velocity, IClip2Velocity = IClip2Velocity, velocityTolerance = velocityTolerance, PIDPeriodCurrent = PIDPeriodCurrent, PParamCurrent = PParamCurrent, IParamCurrent = IParamCurrent, DParamCurrent = DParamCurrent, IClipCurrent = IClipCurrent, acceleration = acceleration, stoppingDistanceAdjustment = stoppingDistanceAdjustment, PIDPeriodPosition = PIDPeriodPosition, PParam1Position = PParam1Position, PParam2Position = PParam2Position, IParam1Position = IParam1Position, IParam2Position = IParam2Position, DParam1Position = DParam1Position, DParam2Position = DParam2Position, IClip1Position = IClip1Position, IClip2Position = IClip2Position, thresholdPosition = thresholdPosition, startTime = 1, positionTolerance = positionTolerance / encoderTickPerRound * (65535 / encoderTickPerRound) * 2 / idealGear.ratio * Modelica.Constants.pi) annotation(
+      OM_SP7_no_control_nomass_nomotorinfo.Controller.Modes.VRampMode Controller_VRampMode2_1(motorVoltage = nominalVoltage, maximumVelocity = maximumVelocity, thresholdVelocity = thresholdVelocity, maximumCurrent = maximumCurrent, PIDPeriodVelocity = PIDPeriodVelocity, PParam1Velocity = PParam1Velocity, PParam2Velocity = PParam2Velocity, IParam1Velocity = IParam1Velocity, IParam2Velocity = IParam2Velocity, DParam1Velocity = DParam1Velocity, DParam2Velocity = DParam2Velocity, IClip1Velocity = IClip1Velocity, IClip2Velocity = IClip2Velocity, velocityTolerance = velocityTolerance, PIDPeriodCurrent = PIDPeriodCurrent, PParamCurrent = PParamCurrent, IParamCurrent = IParamCurrent, DParamCurrent = DParamCurrent, IClipCurrent = IClipCurrent, acceleration = acceleration, stoppingDistanceAdjustment = stoppingDistanceAdjustment, PIDPeriodPosition = PIDPeriodPosition, PParam1Position = PParam1Position, PParam2Position = PParam2Position, IParam1Position = IParam1Position, IParam2Position = IParam2Position, DParam1Position = DParam1Position, DParam2Position = DParam2Position, IClip1Position = IClip1Position, IClip2Position = IClip2Position, thresholdPosition = thresholdPosition, startTime = 1, positionTolerance = positionTolerance / encoderTickPerRound * (65535 / encoderTickPerRound) * 2 / idealGear.ratio * Modelica.Constants.pi) annotation(
         Placement(transformation(extent = {{-90, 60}, {-48, 80}}, rotation = 0)));
       Modelica.Blocks.Interfaces.RealInput setPosition annotation(
         Placement(transformation(origin = {-120, 0}, extent = {{10, 10}, {-10, -10}}, rotation = 180)));
@@ -328,7 +328,7 @@ package OM_SP7_no_control_nomass_nomotorinfo
       
       model PositionPID
         import Modelica.SIunits;
-        import OM_SP7.Controller.Components;
+        import OM_SP7_no_control_nomass_nomotorinfo.Controller.Components;
         Modelica.Blocks.Interfaces.RealOutput setVelocity annotation(
           Placement(transformation(extent = {{200, -20}, {240, 20}}, rotation = 0)));
       public
@@ -413,7 +413,7 @@ package OM_SP7_no_control_nomass_nomotorinfo
       
       model VelocityPID
         import Modelica.SIunits;
-        import OM_SP7.Controller.Components;
+        import OM_SP7_no_control_nomass_nomotorinfo.Controller.Components;
         Modelica.Blocks.Interfaces.RealInput setVelocity annotation(
           Placement(transformation(extent = {{-240, -20}, {-200, 20}}, rotation = 0)));
         Modelica.Blocks.Interfaces.RealInput velocityFeedback annotation(
@@ -498,7 +498,7 @@ package OM_SP7_no_control_nomass_nomotorinfo
       
       model CurrentPID
         import Modelica.SIunits;
-        import OM_SP7.Controller.Components;
+        import OM_SP7_no_control_nomass_nomotorinfo.Controller.Components;
         Modelica.Blocks.Math.Feedback feedback annotation(
           Placement(transformation(extent = {{-180, -10}, {-160, 10}}, rotation = 0)));
         Modelica.Blocks.Interfaces.RealInput setCurrent annotation(
@@ -579,15 +579,15 @@ package OM_SP7_no_control_nomass_nomotorinfo
           Placement(transformation(origin = {0, -80}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
         Interfaces.RealInput currentFeedback annotation(
           Placement(transformation(origin = {90, -80}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
-        OM_SP7.Controller.PIDs.PositionPID positionPID(threshold = thresholdPosition, IClip1 = IClip1Position, IClip2 = IClip2Position, PParam1 = PParam1Position, PParam2 = PParam2Position, IParam1 = IParam1Position, IParam2 = IParam2Position, DParam1 = DParam1Position, DParam2 = DParam2Position, encoderTickPerRound = encoderTickPerRound, maximumVelocity = maximumVelocity, gearRatio = gearRatio, PIDPeriod = PIDPeriodPosition) annotation(
+        OM_SP7_no_control_nomass_nomotorinfo.Controller.PIDs.PositionPID positionPID(threshold = thresholdPosition, IClip1 = IClip1Position, IClip2 = IClip2Position, PParam1 = PParam1Position, PParam2 = PParam2Position, IParam1 = IParam1Position, IParam2 = IParam2Position, DParam1 = DParam1Position, DParam2 = DParam2Position, encoderTickPerRound = encoderTickPerRound, maximumVelocity = maximumVelocity, gearRatio = gearRatio, PIDPeriod = PIDPeriodPosition) annotation(
           Placement(transformation(extent = {{-90, -10}, {-50, 10}}, rotation = 0)));
-        OM_SP7.Controller.PIDs.VelocityPID velocityPID(PParam1 = PParam1Velocity, PParam2 = PParam2Velocity, IClip1 = IClip1Velocity, IClip2 = IClip2Velocity, IParam1 = IParam1Velocity, IParam2 = IParam2Velocity, DParam1 = DParam1Velocity, DParam2 = DParam2Velocity, threshold = thresholdVelocity, maximumCurrent = maximumCurrent, PIDPeriod = PIDPeriodVelocity) annotation(
+        OM_SP7_no_control_nomass_nomotorinfo.Controller.PIDs.VelocityPID velocityPID(PParam1 = PParam1Velocity, PParam2 = PParam2Velocity, IClip1 = IClip1Velocity, IClip2 = IClip2Velocity, IParam1 = IParam1Velocity, IParam2 = IParam2Velocity, DParam1 = DParam1Velocity, DParam2 = DParam2Velocity, threshold = thresholdVelocity, maximumCurrent = maximumCurrent, PIDPeriod = PIDPeriodVelocity) annotation(
           Placement(transformation(extent = {{-20, -10}, {20, 10}}, rotation = 0)));
-        OM_SP7.Controller.PIDs.CurrentPID currentPID(maximumPWM = maximumPWM, PIDPeriod = PIDPeriodCurrent, IClip = IClipCurrent, PParam = PParamCurrent, IParam = IParamCurrent, DParam = DParamCurrent) annotation(
+        OM_SP7_no_control_nomass_nomotorinfo.Controller.PIDs.CurrentPID currentPID(maximumPWM = maximumPWM, PIDPeriod = PIDPeriodCurrent, IClip = IClipCurrent, PParam = PParamCurrent, IParam = IParamCurrent, DParam = DParamCurrent) annotation(
           Placement(transformation(extent = {{70, -10}, {110, 10}}, rotation = 0)));
         Interfaces.RealOutput setVoltage annotation(
           Placement(transformation(extent = {{170, -10}, {190, 10}}, rotation = 0)));
-        OM_SP7.Controller.Components.P2V P2V1(maximumVoltage = motorVoltage, maximumPWM = maximumPWM) annotation(
+        OM_SP7_no_control_nomass_nomotorinfo.Controller.Components.P2V P2V1(maximumVoltage = motorVoltage, maximumPWM = maximumPWM) annotation(
           Placement(transformation(extent = {{130, -10}, {150, 10}}, rotation = 0)));
       public
         parameter Real gearRatio = 156 "Gearbox Ratio";
@@ -663,13 +663,13 @@ package OM_SP7_no_control_nomass_nomotorinfo
           Placement(transformation(origin = {40, -80}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
         Interfaces.RealInput currentFeedback annotation(
           Placement(transformation(origin = {100, -80}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
-        OM_SP7.Controller.PIDs.VelocityPID velocityPID(PParam1 = PParam1Velocity, PParam2 = PParam2Velocity, IClip1 = IClip1Velocity, IClip2 = IClip2Velocity, IParam1 = IParam1Velocity, IParam2 = IParam2Velocity, DParam1 = DParam1Velocity, DParam2 = DParam2Velocity, threshold = thresholdVelocity, maximumCurrent = maximumCurrent, PIDPeriod = PIDPeriodVelocity) annotation(
+        OM_SP7_no_control_nomass_nomotorinfo.Controller.PIDs.VelocityPID velocityPID(PParam1 = PParam1Velocity, PParam2 = PParam2Velocity, IClip1 = IClip1Velocity, IClip2 = IClip2Velocity, IParam1 = IParam1Velocity, IParam2 = IParam2Velocity, DParam1 = DParam1Velocity, DParam2 = DParam2Velocity, threshold = thresholdVelocity, maximumCurrent = maximumCurrent, PIDPeriod = PIDPeriodVelocity) annotation(
           Placement(transformation(extent = {{20, -10}, {60, 10}}, rotation = 0)));
-        OM_SP7.Controller.PIDs.CurrentPID currentPID(maximumPWM = maximumPWM, PIDPeriod = PIDPeriodCurrent, IClip = IClipCurrent, PParam = PParamCurrent, IParam = IParamCurrent, DParam = DParamCurrent) annotation(
+        OM_SP7_no_control_nomass_nomotorinfo.Controller.PIDs.CurrentPID currentPID(maximumPWM = maximumPWM, PIDPeriod = PIDPeriodCurrent, IClip = IClipCurrent, PParam = PParamCurrent, IParam = IParamCurrent, DParam = DParamCurrent) annotation(
           Placement(transformation(extent = {{80, -10}, {120, 10}}, rotation = 0)));
         Modelica.Blocks.Interfaces.RealOutput setVoltage annotation(
           Placement(transformation(extent = {{170, -10}, {190, 10}}, rotation = 0)));
-        OM_SP7.Controller.Components.P2V P2V1(maximumVoltage = motorVoltage, maximumPWM = 1799) annotation(
+        OM_SP7_no_control_nomass_nomotorinfo.Controller.Components.P2V P2V1(maximumVoltage = motorVoltage, maximumPWM = 1799) annotation(
           Placement(transformation(extent = {{140, -10}, {160, 10}}, rotation = 0)));
       public
         parameter Integer encoderTickPerRound = 4000 "Motor Encoder Tick";
@@ -708,13 +708,13 @@ package OM_SP7_no_control_nomass_nomotorinfo
         parameter Integer DParamCurrent "|Current Controller|| derivative gain in current controller";
         parameter Integer IClipCurrent = 0 "|Current Controller|| integral clip in current controller";
         parameter SIunits.Voltage motorVoltage " Source voltage";
-        OM_SP7.Controller.Components.VelocityRampGenerator velocityRampGenerator(maximumVelocity = maximumVelocity, acceleration = acceleration, positionTolerance = positionTolerance, velocityTolerance = velocityTolerance, stoppingDistanceAdjustment = stoppingDistanceAdjustment, startTime = startTime) annotation(
+        OM_SP7_no_control_nomass_nomotorinfo.Controller.Components.VelocityRampGenerator velocityRampGenerator(maximumVelocity = maximumVelocity, acceleration = acceleration, positionTolerance = positionTolerance, velocityTolerance = velocityTolerance, stoppingDistanceAdjustment = stoppingDistanceAdjustment, startTime = startTime) annotation(
           Placement(transformation(extent = {{-110, 20}, {-90, 40}}, rotation = 0)));
         Interfaces.RealInput setPosition annotation(
           Placement(transformation(extent = {{-190, -10}, {-170, 10}}, rotation = 0)));
         Math.Feedback feedback annotation(
           Placement(transformation(extent = {{-150, -10}, {-130, 10}}, rotation = 0)));
-        OM_SP7.Controller.PIDs.PositionPID positionPID(threshold = thresholdPosition, IClip1 = IClip1Position, IClip2 = IClip2Position, PParam1 = PParam1Position, PParam2 = PParam2Position, IParam1 = IParam1Position, IParam2 = IParam2Position, DParam1 = DParam1Position, DParam2 = DParam2Position, encoderTickPerRound = encoderTickPerRound, maximumVelocity = maximumVelocity, gearRatio = gearRatio, PIDPeriod = PIDPeriodPosition) annotation(
+        OM_SP7_no_control_nomass_nomotorinfo.Controller.PIDs.PositionPID positionPID(threshold = thresholdPosition, IClip1 = IClip1Position, IClip2 = IClip2Position, PParam1 = PParam1Position, PParam2 = PParam2Position, IParam1 = IParam1Position, IParam2 = IParam2Position, DParam1 = DParam1Position, DParam2 = DParam2Position, encoderTickPerRound = encoderTickPerRound, maximumVelocity = maximumVelocity, gearRatio = gearRatio, PIDPeriod = PIDPeriodPosition) annotation(
           Placement(transformation(extent = {{-80, -40}, {-40, -20}}, rotation = 0)));
         Modelica.Blocks.Logical.Switch switch annotation(
           Placement(transformation(extent = {{-14, -10}, {6, 10}}, rotation = 0)));
