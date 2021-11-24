@@ -11,8 +11,7 @@ model six_rss_closedloop
     Placement(visible = true, transformation(origin = {-129, -15}, extent = {{-51, -51}, {51, 51}}, rotation = 0)));
   Body.six_rss_legs six_rss_legs annotation(
     Placement(visible = true, transformation(origin = {0, -14}, extent = {{-42, -42}, {42, 42}}, rotation = 0)));
-  outer Modelica.Mechanics.MultiBody.World world annotation(
-    Placement(visible = true, transformation(origin = {-120, 64}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  outer Modelica.Mechanics.MultiBody.World world;
   Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a[6] annotation(
     Placement(visible = true, transformation(origin = {0, 80}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-100, 0}, extent = {{-4, -4}, {4, 4}}, rotation = 0)));
   Body.platform platform annotation(
