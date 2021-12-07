@@ -38,6 +38,6 @@ equation
 annotation(
     Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
     Icon(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
-  __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian -d=backenddaeinfo -d=stateselection -d=discreteinfo",
+  __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian -d=infoXmlOperations -d=backenddaeinfo -d=stateselection -d=discreteinfo",
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "cvode"));
 end fullModel;
