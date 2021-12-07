@@ -21,6 +21,8 @@ model fullModel
     Placement(visible = true, transformation(origin = {56, -74}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.Constant const(k = Modelica.SIunits.Conversions.from_deg(10)) annotation(
     Placement(visible = true, transformation(extent = {{-72, 70}, {-52, 90}}, rotation = 0)));
+  terminateSimulationOnKey stopSim annotation(
+    Placement(visible = true, transformation(origin = {-38, -76}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(sixPositionAxis.flange_b[:], SP7.flange_a[:]) annotation(
     Line(points = {{7, 0}, {36.49, 0}, {36.49, -1.09672e-07}, {60, -1.09672e-07}}, thickness = 0.5));
