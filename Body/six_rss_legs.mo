@@ -21,7 +21,7 @@ model six_rss_legs
   Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_b[6] annotation(
     Placement(visible = true, transformation(origin = {100, 0}, extent = {{-16, -16}, {16, 16}}, rotation = 0), iconTransformation(origin = {100, 0}, extent = {{-16, -16}, {16, 16}}, rotation = 0)));
   Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a[6] annotation(
-    Placement(visible = true, transformation(origin = {-98, 28}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {0, 98}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-98, 28}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {6.66134e-16, 102}, extent = {{-6, -6}, {6, 6}}, rotation = 0)));
 equation
   connect(rss_leg1.frame_a, frame_a[1]) annotation(
     Line(points = {{-12, 90}, {-60, 90}, {-60, 0}, {-98, 0}}, color = {95, 95, 95}));
