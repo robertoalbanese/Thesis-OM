@@ -28,7 +28,7 @@ model platform
     Placement(visible = true, transformation(origin = {-84, 8}, extent = {{-16, -16}, {16, 16}}, rotation = 0), iconTransformation(origin = {-121, -11}, extent = {{-9, -9}, {9, 9}}, rotation = 0)));
   Modelica.Mechanics.MultiBody.Joints.Revolute j_vertical(n = {0, 1, 0}, phi(displayUnit = "rad"), useAxisFlange = true) annotation(
     Placement(visible = true, transformation(origin = {60, 6}, extent = {{-8, -8}, {8, 8}}, rotation = 0)));
-  Modelica.Mechanics.MultiBody.Parts.Body platform(m = 15, r_CM = {0, 0, 0}, useQuaternions = false) annotation(
+  Modelica.Mechanics.MultiBody.Parts.Body platform(angles_fixed = true,m = 15, r_0(each fixed = true, start = {0, 0.5, 0}), r_CM = {0, 0, 0}, useQuaternions = false) annotation(
       Placement(visible = true, transformation(origin = {92, 6}, extent = {{-8, -8}, {8, 8}}, rotation = 0)));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation5(r = legPlatformRelativePositions[5]) annotation(
     Placement(visible = true, transformation(origin = {-10, -24}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
