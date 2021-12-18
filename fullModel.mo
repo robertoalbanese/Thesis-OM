@@ -21,8 +21,6 @@ model fullModel
     Placement(visible = true, transformation(origin = {86, -74}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.Constant const(k = Modelica.SIunits.Conversions.from_deg(10)) annotation(
     Placement(visible = true, transformation(extent = {{-58, 62}, {-38, 82}}, rotation = 0)));
-  OM_SP7.Utils.terminateSimulationOnKey stopSim annotation(
-    Placement(visible = true, transformation(origin = {-8, -76}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(sixPositionAxis.flange_b[:], SP7.flange_a[:]) annotation(
     Line(points = {{9.1, 0.3}, {88.1, 0.3}}, thickness = 0.5));
@@ -46,6 +44,7 @@ equation
 annotation(
     Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
     Icon(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
-  __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian -d=infoXmlOperations -d=backenddaeinfo -d=stateselection -d=discreteinfo",
-  __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "cvode"));
+  __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian -d=infoXmlOperations -d=infoXmlOperations -d=backenddaeinfo -d=stateselection -d=discreteinfo",
+  __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "cvode"),
+  experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-6, Interval = 0.002));
 end fullModel;
