@@ -1,0 +1,10 @@
+variableFilter      = "SP7.six_rss_legs.rss_leg1.j1.phi|SP7.six_rss_legs.rss_leg2.j1.phi|SP7.six_rss_legs.rss_leg3.j1.phi|SP7.six_rss_legs.rss_leg4.j1.phi|SP7.six_rss_legs.rss_leg5.j1.phi|SP7.six_rss_legs.rss_leg6.j1.phi|SP7.platform.j_vertical.phi|SP7.platform.platform.frame_a.R.T.*|SP7.platform.platform.frame_a.r_0.*|SP7.platform.VIVE_tracker1.frame_a.R.T.*|SP7.platform.VIVE_tracker1.frame_a.r_0.*|SP7.platform.VIVE_tracker2.frame_a.R.T.*|SP7.platform.VIVE_tracker2.frame_a.r_0.*|SP7.platform.VIVE_tracker3.frame_a.R.T.*|SP7.platform.VIVE_tracker3.frame_a.r_0.*" />
+
+<DefaultExperiment 
+	stepSize	="0.011104617182934" 
+	outputFormat	="csv" 
+	stopTime	="41" 
+	tolerance	="1e-06" 
+	solver	="cvode" 
+	startTime	="0" 
+	variableFilter      = "SP7.six_rss_legs.rss_leg1.j1.phi|SP7.six_rss_legs.rss_leg2.j1.phi|SP7.six_rss_legs.rss_leg3.j1.phi|SP7.six_rss_legs.rss_leg4.j1.phi|SP7.six_rss_legs.rss_leg5.j1.phi|SP7.six_rss_legs.rss_leg6.j1.phi|SP7.platform.j_vertical.phi|SP7.platform.platform.frame_a.R.T.*|SP7.platform.platform.frame_a.r_0.*" />
