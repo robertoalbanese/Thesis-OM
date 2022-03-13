@@ -1,5 +1,6 @@
 six_rss_closedloop
 base
-platform
 six_rss_legs
 rss_leg
+platform_3trackers
+platform

@@ -975,7 +975,7 @@ package OM_SP7_no_control_nomass_nomotorinfo
       import Modelica.Math;
       import Modelica.Constants;
       
-      parameter SIunits.Length h = 0.2 "Rotational motor's horn anchor length" annotation(
+      parameter SIunits.Length h = 0.2 "Rotational motor's crank anchor length" annotation(
         Dialog(tab = "General"));
       parameter SIunits.Angle alpha = Modelica.SIunits.Conversions.from_deg(120) "Leg-pair displacement";
       parameter Integer lefPositionConfig[2]={0,-1}"motorPair = 0/1/2   |   legPosition = -1(right)/1(left)";
@@ -988,7 +988,7 @@ package OM_SP7_no_control_nomass_nomotorinfo
       outer Modelica.Mechanics.MultiBody.World world;
       Modelica.Mechanics.MultiBody.Parts.BodyShape rod(m = 0.01, r = {-lefPositionConfig[2] * h * sin(lefPositionConfig[1] * alpha), 0.4, lefPositionConfig[2] * h * cos(lefPositionConfig[1] * alpha)}, r_CM = {-lefPositionConfig[2] * h * sin(lefPositionConfig[1] * alpha) / 2, 0.2, lefPositionConfig[2] * h * cos(lefPositionConfig[1] * alpha) / 2}, useQuaternions = useQuat) annotation(
         Placement(visible = true, transformation(origin = {28, 4}, extent = {{-8, -8}, {8, 8}}, rotation = 0)));
-      Modelica.Mechanics.MultiBody.Parts.BodyShape horn(m = 0.01, r = {lefPositionConfig[2] * h * sin(lefPositionConfig[1] * alpha), 0, -lefPositionConfig[2] * h * cos(lefPositionConfig[1] * alpha)}, r_CM = {lefPositionConfig[2] * h * sin(lefPositionConfig[1] * alpha) / 2, 0 / 2, -lefPositionConfig[2] * h * cos(lefPositionConfig[1] * alpha) / 2}, useQuaternions = useQuat) annotation(
+      Modelica.Mechanics.MultiBody.Parts.BodyShape crank(m = 0.01, r = {lefPositionConfig[2] * h * sin(lefPositionConfig[1] * alpha), 0, -lefPositionConfig[2] * h * cos(lefPositionConfig[1] * alpha)}, r_CM = {lefPositionConfig[2] * h * sin(lefPositionConfig[1] * alpha) / 2, 0 / 2, -lefPositionConfig[2] * h * cos(lefPositionConfig[1] * alpha) / 2}, useQuaternions = useQuat) annotation(
         Placement(visible = true, transformation(origin = {-26, 4}, extent = {{-8, -8}, {8, 8}}, rotation = 0)));
       Modelica.Mechanics.MultiBody.Joints.Spherical j2(enforceStates = stateSelect == StateSelect.always, useQuaternions = useQuat) annotation(
         Placement(visible = true, transformation(origin = {0, 4}, extent = {{-8, -8}, {8, 8}}, rotation = 0)));
@@ -1001,9 +1001,9 @@ package OM_SP7_no_control_nomass_nomotorinfo
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_b annotation(
         Placement(visible = true, transformation(origin = {86, 4}, extent = {{-16, -16}, {16, 16}}, rotation = 0), iconTransformation(origin = {100, 6}, extent = {{-16, -16}, {16, 16}}, rotation = 0)));
     equation
-      connect(j1.frame_b, horn.frame_a) annotation(
+      connect(j1.frame_b, crank.frame_a) annotation(
         Line(points = {{-46, 4}, {-34, 4}}));
-      connect(horn.frame_b, j2.frame_a) annotation(
+      connect(crank.frame_b, j2.frame_a) annotation(
         Line(points = {{-18, 4}, {-8, 4}}, color = {95, 95, 95}));
       connect(j2.frame_b, rod.frame_a) annotation(
         Line(points = {{8, 4}, {20, 4}}, color = {95, 95, 95}));

@@ -68,5 +68,5 @@ equation
     Line(points = {{76, 0}, {120, 0}}));
   annotation(
     Diagram(coordinateSystem(preserveAspectRatio = false, extent = {{-140, -100}, {140, 100}})),
-    Icon(coordinateSystem(preserveAspectRatio = false, extent = {{-140, -100}, {140, 100}}), graphics = {Rectangle(lineColor = {255, 128, 0}, fillColor = {255, 128, 0}, fillPattern = FillPattern.Solid, extent = {{-140, 60}, {140, -60}}), Text(origin = {-3, 2}, extent = {{-87, 26}, {87, 0}}, textString = "Position PID"), Text(origin = {-2, 0}, extent = {{-86, -1}, {82, -28}}, textString = "DC driver"), Text(textColor = {0, 0, 255}, extent = {{-140, 100}, {140, 60}}, textString = "%name")}));
+    Icon(coordinateSystem(preserveAspectRatio = false, extent = {{-140, -100}, {140, 100}}), graphics = {Rectangle(lineColor = {255, 128, 0}, fillColor = {255, 128, 0}, fillPattern = FillPattern.Solid, extent = {{-140, 60}, {140, -60}}), Text(origin = {-3, 2}, extent = {{-87, 26}, {87, 0}}, textString = "Position PID"), Text(origin = {-2, 0}, extent = {{-86, -1}, {82, -28}}, textString = "DC driver"), Text(lineColor = {0, 0, 255}, extent = {{-140, 100}, {140, 60}}, textString = "%name")}));
 end FDL_DCPositionAxis;

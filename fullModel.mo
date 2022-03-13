@@ -11,7 +11,7 @@ model fullModel
     Placement(visible = true, transformation(origin = {-2, 0}, extent = {{-14, -14}, {14, 14}}, rotation = 0)));
   Real endTimeSimulation = jointSpace.t_maxScaled; 
   Modelica.Blocks.Logical.TerminateSimulation terminateSimulation(condition = time >= endTimeSimulation) annotation(
-    Placement(visible = true, transformation(extent = {{-42, -78}, {38, -72}}, rotation = 0)));
+    Placement(visible = true, transformation(extent = {{-44, -46}, {36, -40}}, rotation = 0)));
   equation
   when sample(0, 1) then
     print("Time =" + String(time) + "\n");

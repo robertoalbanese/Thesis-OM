@@ -12,7 +12,7 @@ model rss_leg
     Dialog(tab = "Advanced"));
   parameter SIunits.Angle alpha = Modelica.SIunits.Conversions.from_deg(120);
   parameter Integer lefPositionConfig[2] = {0, -1} "motorPair = 0/1/2   |   legPosition = -1(right)/1(left)";
-  Modelica.Mechanics.MultiBody.Joints.Revolute j1(cylinderDiameter = 0.04, cylinderLength = 0.04,n = {cos(lefPositionConfig[1] * alpha), sin(lefPositionConfig[1] * alpha), 0}, phi(displayUnit = "rad", fixed = true, start = 0), useAxisFlange = true, w(fixed = false)) annotation(
+  Modelica.Mechanics.MultiBody.Joints  .Revolute j1(cylinderDiameter = 0.04, cylinderLength = 0.04,n = {cos(lefPositionConfig[1] * alpha), sin(lefPositionConfig[1] * alpha), 0}, phi(displayUnit = "rad", fixed = true, start = 0), useAxisFlange = true, w(fixed = false)) annotation(
     Placement(visible = true, transformation(origin = {-28, 0}, extent = {{-8, -8}, {8, 8}}, rotation = 0)));
   Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a annotation(
     Placement(visible = true, transformation(origin = {-62, 28}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-100, 28}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
